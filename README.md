@@ -24,7 +24,7 @@ source .venv/bin/activate
 
 ## download datasets
 should at least include: data.yaml, test (folder), train (folder), valid (folder)
-* i personally renamed every one to fire[number] (ex. fire1, fire2, ... fire _n_)
+* i personally renamed every one to fire[number] (ex. fire1, fire2, ... fire*n*)
 
 build the dataset
 ```
