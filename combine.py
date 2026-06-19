@@ -8,6 +8,7 @@ sources = sys.argv[1:]
 if not sources:
     print("Usage: python build_dataset.py folder1 folder2 ...")
     sys.exit(1)
+#for example, fire1, fire2, fire3...
 
 OUT = "combined_split"
 IMG_EXT = (".jpg", ".jpeg", ".png", ".bmp", ".webp")
@@ -42,6 +43,7 @@ a, b = int(n * 0.8), int(n * 0.9)
 split = {"train": pairs[:a], "valid": pairs[a:b], "test": pairs[b:]}
 
 # 3. wipe old output, rebuild fresh (collision-safe: image+label keep same stem)
+# always called combined_folder; when training again, still use combined_folder
 if os.path.exists(OUT):
     shutil.rmtree(OUT)
 for sp, items in split.items():
