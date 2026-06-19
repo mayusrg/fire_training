@@ -9,7 +9,7 @@ train yolov11 with images of fire and smoke
 
 > This guide uses `device=mps`, which is **Apple Silicon (M1/M2/M3/M4) only**.
 > 
-> Windows/Linux with an NVIDIA GPU → use `device=0`. > No GPU → use `device=cpu` (slow).
+> Windows/Linux with an NVIDIA GPU → use `device=0`. No GPU → use `device=cpu` (slow).
 
 ## you need:
 - A Mac with Apple Silicon (this guide), or adjust `device` as above.
@@ -93,8 +93,47 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 # BRAIN MANAGEMENT
+## to find every brain you have at once:
+```
+find runs -name best.pt
+```
 
+## create a new brain (keeps all old ones)
+change the `name=`. new name -> new folder -> old brains untouched.
+```
+yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v3
+```
+this will put the brain in runs/detect/fire_v3/weights/best.pt
 
+## overwrite an existing brain
+1. reuse the name name and force it with `exist_ok=True`:
+   ```
+   yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2 exist_ok=True
+   ```
+2. **OR** delete the old folder, and then train normally
+
+# FILE STRUCTURE
+```
+~/projects/fire-detect/
+├── yolo11n.pt                  ← the STARTER brain (not yours; the seed)
+├── build_dataset.py
+├── combined_split/             ← your training data
+│   ├── data.yaml
+│   ├── train/  valid/  test/
+├── fire1/  fire2/              ← raw dataset backups
+└── runs/
+    └── detect/
+        ├── wildfires/          ← a TRAINED brain (your first run)
+        │   └── weights/
+        │       ├── best.pt     ★ THE BRAIN you use
+        │       └── last.pt       (final-epoch version, usually ignore)
+        ├── fire_v2/            ← next trained brain (after you run it)
+        │   └── weights/
+        │       ├── best.pt     ★
+        │       └── last.pt
+        ├── predict/ … predict-10/   ← detection outputs, NOT brains
+        └── ...
+```
 
 # Datasets used
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
