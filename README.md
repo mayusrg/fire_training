@@ -86,7 +86,8 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 - epocks=100 - how many times it studies the full set
 - patience=20 - auto-stop if it stops imprving for 20 epochs (keeps the best version)
 - name=fire_v2 - change this number if you don't want to overwrite your previous brain.
-- [more details regarding brains]()
+- [more details regarding brains](# create the box (only the first time))
+
 
 
 
