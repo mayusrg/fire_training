@@ -8,10 +8,8 @@ train yolov11 with images of fire and smoke
 - epoch: one full pass over all training images.
 
 > This guide uses `device=mps`, which is **Apple Silicon (M1/M2/M3/M4) only**.
-
-> Windows/Linux with an NVIDIA GPU → use `device=0`.
-
-> No GPU → use `device=cpu` (slow).
+> 
+> Windows/Linux with an NVIDIA GPU → use `device=0`. > No GPU → use `device=cpu` (slow).
 
 ## you need:
 - A Mac with Apple Silicon (this guide), or adjust `device` as above.
