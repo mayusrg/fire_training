@@ -112,7 +112,8 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 this will put the brain in runs/detect/fire_v3/weights/best.pt
 
 ## overwrite an existing brain
-1. reuse the name name and force it with `exist_ok=True`:
+1. reuse the name and force it with `exist_ok=True`:
+   
    ```
    yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2 exist_ok=True
    ```
@@ -120,8 +121,10 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
 
 # ACTUALLY RUNNING YOLO
 0. make sure your environment is activated duh
-1. ``` yolo detect predict model=runs/detect/fire_v2/weights/best.pt source=0 device=mps show=True ```
-
+1. ``` yolo detect predict model=runs/detect/fire_v2/weights/best.pt source=0 device=mps name=wtv_name_you_want show=True ```
+> ```model=``` is just a file path. YOLO loads whatever ```.pt``` sits at that path.
+> notice the yolo detect **predict** vs **train**
+> source depends on whether you want your built in camer or another connected device
 
 # FILE STRUCTURE
 ```
