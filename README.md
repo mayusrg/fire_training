@@ -3,7 +3,7 @@ train yolov11 with images of fire and smoke
 
 # Things to do, in order
 1. create a folder (example here is fire-detect)
-  - this is where the downloaded datasets will go
+   - this is where the downloaded datasets will go
   - yolo11n.pt will be here
 2. download your datasets
   - should at least include: data.yaml, test (folder), train (folder), valid (folder)
