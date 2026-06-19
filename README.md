@@ -80,10 +80,19 @@ python build_dataset.py fire*
 
 ## train the new brain
 
-
 ```
 yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2
 ```
+- epocks=100 - how many times it studies the full set
+- patience=20 - auto-stop if it stops imprving for 20 epochs (keeps the best version)
+- name=fire_v2 - change this number if you don't want to overwrite your previous brain.
+- [more details regarding brains]()
+
+
+
+# BRAIN MANAGEMENT
+
+
 
 # Datasets used
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
