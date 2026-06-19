@@ -1,1 +1,5 @@
-
+- explain steps to use combine.py
+- explain WHY combine py
+- how to rename when yaml has data in different order (ex. [0, 1] vs ['fire', 'smoke'] vs ['smoke', 'fire']
+- how to activate YOLOv11
+- how to get rid of basic YOLOv11 recognition (recognizing people, etc)
