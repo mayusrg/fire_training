@@ -64,10 +64,16 @@ activate:
 source .venv/bin/activate
 ```
 
-## download datasets
+## download datasets: training
 should at least include: data.yaml, test (folder), train (folder), valid (folder)
 * i personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
 * if you do not do this, you must manually list out every folder name when building.
+
+`build_dataset.py` combines all your dataset folders, shuffles them, and splits them into the `combined_split/` folder that training reads.
+-> save `build_dataset.py` into your project folder (same place as 'yolo11n.pt')
+
+## when to run the build script
+build, train, and rebuild whenever your data changes
 
 build the dataset
 ```
@@ -112,6 +118,11 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
    ```
 2. **OR** delete the old folder, and then train normally
 
+# ACTUALLY RUNNING YOLO
+0. make sure your environment is activated duh
+1. ``` yolo detect predict model=runs/detect/fire_v2/weights/best.pt source=0 device=mps show=True ```
+
+
 # FILE STRUCTURE
 ```
 ~/projects/fire-detect/
@@ -134,6 +145,7 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
         ├── predict/ … predict-10/   ← detection outputs, NOT brains
         └── ...
 ```
+
 
 # Datasets used
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
