@@ -1,16 +1,19 @@
 # Training YOLOv11 to accurately recognize images of fire and smoke
 train yolov11 with images of fire and smoke
 
-# Things to do, in order
+# things to do, in order
 1. create a folder (example here is fire-detect)
-   - this is where the downloaded datasets will go
-   - yolo11n.pt will be here
 2. download your datasets
-   - should at least include: data.yaml, test (folder), train (folder), valid (folder)
 3. activate environment
 4. train 
 
-# Activate your environment
+# specific instructutions
+
+## create a folder
+where your downloaded datasets will go
+yolo11n.pt is here.
+
+## activate your environment
 go to your folder full of datasets
 ```
 cd ~/projects/fire-detect
@@ -18,6 +21,15 @@ cd ~/projects/fire-detect
 activate:
 ```
 source .venv/bin/activate
+```
+
+## download datasets
+should at least include: data.yaml, test (folder), train (folder), valid (folder)
+* i personally renamed every one to fire[number] (ex. fire1, fire2, ... fire_n_)
+
+build the dataset
+```
+python build_dataset.py fire1 fire2
 ```
 
 
