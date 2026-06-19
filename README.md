@@ -10,7 +10,7 @@ train yolov11 with images of fire and smoke
 # specific instructutions
 
 ## create a folder
-where your downloaded datasets will go
+where your downloaded datasets will go /n
 yolo11n.pt is here.
 
 ## activate your environment
