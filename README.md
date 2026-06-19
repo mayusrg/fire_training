@@ -7,12 +7,19 @@ train yolov11 with images of fire and smoke
    - yolo11n.pt will be here
 2. download your datasets
    - should at least include: data.yaml, test (folder), train (folder), valid (folder)
+3. activate environment
+4. train 
 
 # Activate your environment
-go to your 
+go to your folder full of datasets
 ```
 cd ~/projects/fire-detect
 ```
+activate:
+```
+source .venv/bin/activate
+```
+
 
 # Datasets used
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
