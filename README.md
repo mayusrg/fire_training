@@ -157,6 +157,6 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
 ```
 
 
-# Datasets used
+# Datasets used (this is for my own sake this shouldn't matter to whoever's reading lol)
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
 2. https://universe.roboflow.com/waleed-azzi-o5bzp/wildfire-detection-3vcvr
