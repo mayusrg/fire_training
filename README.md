@@ -48,7 +48,7 @@ pip install --upgrade pip
 pip install ultralytics
 ```
 
-When the venv is on, your prompt starts with `(.venv)`. Confirm it works:
+when the venv is on, your prompt starts with `(.venv)`. confirm it works:
 
 ```bash
 yolo checks
