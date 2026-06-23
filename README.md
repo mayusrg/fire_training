@@ -59,9 +59,6 @@ should at least include: data.yaml, test (folder), train (folder), valid (folder
 * i personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
 * if you do not do this, you must manually list out every folder name when building.
 
-`build_dataset.py` combines all your dataset folders, shuffles them, and splits them into the `combined_split/` folder that training reads.
--> save `build_dataset.py` into your project folder (same place as 'yolo11n.pt')
-
 
 
 ## 3. activate your environment (every time, before you can do anything)
@@ -80,6 +77,11 @@ source .venv/bin/activate
 build, train, and rebuild whenever your data changes
 [WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
 
+```build_dataset.py``` combines all your dataset folders, shuffles them, and splits them into the ```combined_split/``` folder that training reads.
+-> save ```build_dataset.py``` into your project folder (same place as ```yolo11n.pt```)
+
+[***PLEASE READ THIS BEFORE YOU BUILD***](# CLASS NAME AND ORDER MISMATCHES)
+
 build the dataset
 ```
 python build_dataset.py fire1 fire2
@@ -95,10 +97,10 @@ python build_dataset.py fire*
 ```
 yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2
 ```
-- epochs=100 - how many times it studies the full set
-- patience=20 - auto-stop if it stops imprving for 20 epochs (keeps the best version)
-- name=fire_v2 - change this number if you don't want to overwrite your previous brain.
-- imgsz - target image resolution
+- ```epochs=100``` - how many times it studies the full set
+- ```patience=20``` - auto-stop if it stops imprving for 20 epochs (keeps the best version)
+- ```name=fire_v2``` - change this number if you don't want to overwrite your previous brain.
+- ```imgsz``` - target image resolution
 - [more details regarding brains](#BRAIN-MANAGEMENT)
 
 
@@ -115,6 +117,15 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 > notice the yolo detect **predict** vs **train**
 > source depends on whether you want your built in camera or another connected device
 
+
+
+# CLASS NAME AND ORDER MISMATCHES
+
+
+# WHY USE BUILD_DATASET.PY?
+roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
+
+```build_dataset.py``` deletes and rebuilds ```combined_split/``` from scratch each run so it's freshly split 80/10/10 each time you add something.
 
 
 
@@ -140,10 +151,6 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
 2. **OR** delete the old folder, and then train normally
 
 
-# WHY USE BUILD_DATASET.PY?
-roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
-
-```build_dataset.py``` deletes and rebuilds ```combined_split/``` from scratch each run so it's freshly split 80/10/10 each time you add something.
 
 # FILE STRUCTURE
 ```
