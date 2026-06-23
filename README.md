@@ -3,24 +3,24 @@ train yolov11 with images of fire and smoke
 
 ## key terms:
 - dataset: a folder of images plus matching label files (the boxes)
-- yolo11n.pt: the starter brain everyone trains from; knows general shapes, not fire yet. auto-downloads on first use
-- model / brain / "best.pt" : the trained result. stored in 'runs/detect/<name>/weights/.
+- ```yolo11n.pt```: the starter brain everyone trains from; knows general shapes, not fire yet. auto-downloads on first use
+- model / brain / "best.pt" : the trained result. stored in ```runs/detect/<name>/weights/```.
 - epoch: one full pass over all training images.
 
 > This guide uses `device=mps`, which is **Apple Silicon (M1/M2/M3/M4) only**.
 > 
-> Windows/Linux with an NVIDIA GPU → use `device=0`. No GPU → use `device=cpu` (slower).
+> Windows/Linux with an NVIDIA GPU → use ```device=0```. No GPU → use ```device=cpu``` (slower).
 
 ## you need:
-- adjust `device` as above according to device (mac vs windows/linux)
+- adjust ```device``` as above according to device (mac vs windows/linux)
 - **Python 3.11+** installed.
 
 
 # things to do, in order
 1. setup
-2. activate environment
-3. download
-4. build datasets
+2. download datasets
+3. activate environment
+4. build
 5. train
 6. run
 
@@ -78,6 +78,7 @@ source .venv/bin/activate
 
 ## 4. build
 build, train, and rebuild whenever your data changes
+[WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
 
 build the dataset
 ```
@@ -139,6 +140,11 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
 2. **OR** delete the old folder, and then train normally
 
 
+# WHY USE BUILD_DATASET.PY?
+roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
+
+```build_dataset.py``` deletes and rebuilds ```combined_split/``` from scratch each run so it's freshly split 80/10/10 each time you add something.
+
 # FILE STRUCTURE
 ```
 ~/projects/fire-detect/
@@ -146,8 +152,18 @@ this will put the brain in runs/detect/fire_v3/weights/best.pt
 ├── build_dataset.py
 ├── combined_split/             ← your training data
 │   ├── data.yaml
-│   ├── train/  valid/  test/
-├── fire1/  fire2/              ← raw dataset backups
+│   ├── train/   valid/   test/
+├── fire1/                      ← dataset backups
+│   ├── data.yaml
+│   ├── test/
+│       ├── images/   labels/
+│   ├── train/
+│       ├── images/   labels/
+│   ├── valid/
+│       ├── images/             
+│       └── labels/             ← annotations
+├── fire2/
+│   └── ...
 └── runs/
     └── detect/
         ├── wildfires/          ← a TRAINED brain (your first run)
