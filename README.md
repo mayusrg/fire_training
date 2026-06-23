@@ -112,7 +112,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 > ```name=``` only controls the output folder under ```runs/detect/<name>/```
 >
 > notice the yolo detect **predict** vs **train**
-> source depends on whether you want your built in camer or another connected device
+> source depends on whether you want your built in camera or another connected device
 
 
 
