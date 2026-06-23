@@ -110,6 +110,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
    ```yolo detect predict model=path/to/brain.pt source=0 device=mps name=wtv_name_you_want show=True ```
 > ```model=``` is just a file path. YOLO loads whatever ```.pt``` sits at that path.
 > ```name=``` only controls the output folder under ```runs/detect/<name>/```
+>
 > notice the yolo detect **predict** vs **train**
 > source depends on whether you want your built in camer or another connected device
 
