@@ -5,3 +5,4 @@
 - [ ] how to get rid of basic YOLOv11 recognition (recognizing people, etc)
 - [ ] explain brains
 - [ ] explain file structure
+- [ ] get rid of near-duplicate frames
