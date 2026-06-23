@@ -9,7 +9,7 @@ train yolov11 with images of fire and smoke
 
 > This guide uses `device=mps`, which is **Apple Silicon (M1/M2/M3/M4) only**.
 > 
-> Windows/Linux with an NVIDIA GPU → use `device=0`. No GPU → use `device=cpu` (slow).
+> Windows/Linux with an NVIDIA GPU → use `device=0`. No GPU → use `device=cpu` (slower).
 
 ## you need:
 - adjust `device` as above according to device (mac vs windows/linux)
@@ -103,7 +103,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 # 6. ACTUALLY RUNNING YOLO
 0. make sure your environment is activated duh
-1. ``` yolo detect predict model=runs/detect/fire_v2/weights/best.pt source=0 device=mps name=wtv_name_you_want show=True ```
+1. ``` yolo detect predict model=runs/yolo11n.pt source=0 device=mps name=wtv_name_you_want show=True ```
 > ```model=``` is just a file path. YOLO loads whatever ```.pt``` sits at that path.
 > ```name=``` only controls the output folder under ```runs/detect/<name>/```
 > notice the yolo detect **predict** vs **train**
