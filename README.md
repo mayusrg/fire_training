@@ -75,12 +75,14 @@ source .venv/bin/activate
 
 ## 4. build
 build, train, and rebuild whenever your data changes
-[WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
+
 
 ```build_dataset.py``` combines all your dataset folders, shuffles them, and splits them into the ```combined_split/``` folder that training reads.
 -> save ```build_dataset.py``` into your project folder (same place as ```yolo11n.pt```)
 
-[***PLEASE READ THIS BEFORE YOU BUILD***](# CLASS NAME AND ORDER MISMATCHES)
+[WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
+
+[***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS NAME AND ORDER MISMATCHES)
 
 build the dataset
 ```
