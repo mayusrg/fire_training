@@ -12,7 +12,7 @@ train yolov11 with images of fire and smoke
 > Windows/Linux with an NVIDIA GPU → use `device=0`. No GPU → use `device=cpu` (slow).
 
 ## you need:
-- A Mac with Apple Silicon (this guide), or adjust `device` as above.
+- adjust `device` as above according to device (mac vs windows/linux)
 - **Python 3.11+** installed.
 
 
@@ -32,14 +32,14 @@ train yolov11 with images of fire and smoke
 where your downloaded datasets will go. *yolo11n.pt is here.*
 
 for this guide, the folder is called *fire-detect*.
-```bash
+```
 mkdir -p ~/projects/fire-detect
 cd ~/projects/fire-detect
 ```
 
 ### set up the environment (first-timers only)
 create the environment:
-```bash
+```
 python3 -m venv .venv
 ```
 install YOLO
@@ -50,7 +50,7 @@ pip install ultralytics
 
 when the venv is on, your prompt starts with `(.venv)`. confirm it works:
 
-```bash
+```
 yolo checks
 ```
 
