@@ -101,12 +101,12 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 - [more details regarding brains](#BRAIN-MANAGEMENT)
 
 
-# 6. ACTUALLY RUNNING YOLO
+## 6. ACTUALLY RUNNING YOLO
 0. make sure your environment is activated duh
 1. This is the basic yolo detection one (the model is the default seed)
    ```yolo predict model=yolo11n.pt source=0 device=mps show=True```
 
-   This is the more detailed one:
+2. This is the more detailed one:
    ```yolo detect predict model=path/to/brain.pt source=0 device=mps name=wtv_name_you_want show=True ```
 > ```model=``` is just a file path. YOLO loads whatever ```.pt``` sits at that path.
 > ```name=``` only controls the output folder under ```runs/detect/<name>/```
