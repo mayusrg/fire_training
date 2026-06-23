@@ -19,10 +19,10 @@ Train yolov11 with images of fire and smoke
 # Things to do, in order
 1. [Setup](##create-a-folder)
 2. [Download datasets](#2-download-datasets-training)
-3. [Activate environment](#3-activate-your-environment)
-4. Build files
-5. Train
-6. Run
+3. [Activate environment](#3-activate-your-environment(every-time, before you can do anything))
+5. Build files
+6. Train
+7. Run
 
 
 
