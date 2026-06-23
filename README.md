@@ -1,5 +1,5 @@
 # Training YOLOv11 to accurately recognize images of fire and smoke
-train yolov11 with images of fire and smoke
+Train yolov11 with images of fire and smoke
 
 ## key terms:
 - dataset: a folder of images plus matching label files (the boxes)
@@ -11,18 +11,18 @@ train yolov11 with images of fire and smoke
 > 
 > Windows/Linux with an NVIDIA GPU → use ```device=0```. No GPU → use ```device=cpu``` (slower).
 
-## you need:
+## You need:
 - adjust ```device``` as above according to device (mac vs windows/linux)
 - **Python 3.11+** installed.
 
 
-# things to do, in order
-1. setup
-2. download datasets
-3. activate environment
-4. build
-5. train
-6. run
+# Things to do, in order
+1. [Setup](##create-a-folder)
+2. [Download datasets](##download-datasets:-training)
+3. Activate environment
+4. Build files
+5. Train
+6. Run
 
 
 
@@ -59,6 +59,8 @@ should at least include: data.yaml, test (folder), train (folder), valid (folder
 * i personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
 * if you do not do this, you must manually list out every folder name when building.
 
+> Once you train a model on your fire/smoke data, the resulting brain (```best.pt```) only knows fire and smoke. Training a seed brain creates a new brain that only recognizes your 2 classes (seen in your ```data.yaml```).
+
 
 
 ## 3. activate your environment (every time, before you can do anything)
@@ -78,7 +80,8 @@ build, train, and rebuild whenever your data changes
 
 
 ```build_dataset.py``` combines all your dataset folders, shuffles them, and splits them into the ```combined_split/``` folder that training reads.
--> save ```build_dataset.py``` into your project folder (same place as ```yolo11n.pt```)
+
+Save ```build_dataset.py``` into your project folder (same place as ```yolo11n.pt```)
 
 [WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
 
@@ -93,6 +96,7 @@ if you have a lot of dataset folders named in a specific format:
 ```
 python build_dataset.py fire*
 ```
+
 
 ## 5. train the new brain
 
@@ -122,6 +126,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 # CLASS NAME AND ORDER MISMATCHES
+
 
 
 # WHY USE BUILD_DATASET.PY?
