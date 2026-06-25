@@ -187,9 +187,8 @@ Cases you might see + how to fix:
    nc: 3
    names: ['fire', 'smoke', 'water']
    ```
-
-
-
+   <p></p>
+   
    **This is NOT fine:**
    
    DatasetA
