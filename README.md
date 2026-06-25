@@ -26,57 +26,57 @@ Train yolov11 with images of fire and smoke
 
 
 
-# specific instructions
+# Specific instructions
 
-## 1. create a folder
-where your downloaded datasets will go. *yolo11n.pt is here.*
+## 1. Create a folder
+Where your downloaded datasets will go. ```yolo11n.pt``` is here.
 
-for this guide, the folder is called *fire-detect*.
+For this guide, the folder is called ```fire-detect```.
 ```
 mkdir -p ~/projects/fire-detect
 cd ~/projects/fire-detect
 ```
 
-### set up the environment (first-timers only)
-create the environment:
+### Set up the environment (first-timers only)
+Create the environment:
 ```
 python3 -m venv .venv
 ```
-install YOLO
+Install YOLO:
 ```
 pip install --upgrade pip
 pip install ultralytics
 ```
 
-when the venv is on, your prompt starts with `(.venv)`. confirm it works:
+When the venv is on, your prompt starts with `(.venv)`. Confirm it works:
 
 ```
 yolo checks
 ```
 
-## 2. download datasets: training
-should at least include: data.yaml, test (folder), train (folder), valid (folder)
-* i personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
-* if you do not do this, you must manually list out every folder name when building.
+## 2. Download datasets: training
+Should at least include: data.yaml, test (folder), train (folder), valid (folder)
+* I personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
+* If you do not do this, you must manually list out every folder name when building.
 
 > Once you train a model on your fire/smoke data, the resulting brain (```best.pt```) only knows fire and smoke. Training a seed brain creates a new brain that only recognizes your 2 classes (seen in your ```data.yaml```).
 
 
 
-## 3. activate your environment (every time, before you can do anything)
-go to your folder full of datasets
+## 3. Activate your environment (every time, before you can do anything)
+Go to your folder full of datasets
 ```
 cd ~/projects/fire-detect
 ```
 
-activate:
+Activate:
 ```
 source .venv/bin/activate
 ```
 
 
-## 4. build
-build, train, and rebuild whenever your data changes
+## 4. Build
+Build, train, and rebuild whenever your data changes
 
 
 ```build_dataset.py``` combines all your dataset folders, shuffles them, and splits them into the ```combined_split/``` folder that training reads.
@@ -87,18 +87,18 @@ Save ```build_dataset.py``` into your project folder (same place as ```yolo11n.p
 
 [***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS NAME AND ORDER MISMATCHES)
 
-build the dataset
+Build the dataset:
 ```
 python build_dataset.py fire1 fire2
 ```
 
-if you have a lot of dataset folders named in a specific format:
+If you have a lot of dataset folders named in a specific format:
 ```
 python build_dataset.py fire*
 ```
 
 
-## 5. train the new brain
+## 5. Train the new brain
 
 ```
 yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2
@@ -111,7 +111,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 ## 6. ACTUALLY RUNNING YOLO
-0. make sure your environment is activated duh
+0. Make sure your environment is activated duh
 1. This is the basic yolo detection one (the model is the default seed)
    ```yolo predict model=yolo11n.pt source=0 device=mps show=True```
 
@@ -130,27 +130,27 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 # WHY USE BUILD_DATASET.PY?
-roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
+Roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
 
 ```build_dataset.py``` deletes and rebuilds ```combined_split/``` from scratch each run so it's freshly split 80/10/10 each time you add something.
 
 
 
 # BRAIN MANAGEMENT
-## to find every brain you have at once:
+## To find every brain you have at once:
 ```
 find runs -name best.pt
 ```
 
-## create a new brain (keeps all old ones)
-change the `name=`. new name -> new folder -> old brains untouched.
+## Create a new brain (keeps all old ones)
+Change ```name=```. New name -> new folder -> old brains untouched.
 ```
 yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v3
 ```
-this will put the brain in runs/detect/fire_v3/weights/best.pt
+This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
 
-## overwrite an existing brain
-1. reuse the name and force it with `exist_ok=True`:
+## Overwrite an existing brain
+1. Reuse the name and force it with `exist_ok=True`:
    
    ```
    yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2 exist_ok=True
