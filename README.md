@@ -112,6 +112,7 @@ python build_dataset.py fire1 fire2
 > python build_dataset.py fire*
 > ```
 
+
 If you DON'T want to download the file, copy and paste this into your terminal:
 ```
 cat > build_dataset.py << 'EOF'
