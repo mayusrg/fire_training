@@ -102,15 +102,22 @@ Then paste in the contents of ```build_dataset.py```.
 
 [***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS-NAME-AND-ORDER-MISMATCHES)
 
-Build the dataset:
+Build the dataset, IF YOU ALREADY HAVE ```build_dataset.py``` DOWNLOADED:
 ```
 python build_dataset.py fire1 fire2
 ```
 
-If you have a lot of dataset folders named in a specific format:
+> If you have a lot of dataset folders named in a specific format:
+> ```
+> python build_dataset.py fire*
+> ```
+
+If you DON'T want to download the file, copy and paste this into your terminal:
 ```
-python build_dataset.py fire*
+cat > build_dataset.py << 'EOF'
 ```
+
+Then paste in the contents of ```build_dataset.py```.
 
 
 ## 5. Train the new brain
