@@ -91,9 +91,16 @@ Build, train, and rebuild whenever your data changes.
 
 Save ```build_dataset.py``` into your project folder (same place as ```yolo11n.pt```)
 
+Copy and paste this into your terminal:
+```
+cat > build_dataset.py << 'EOF'
+```
+
+Then paste in the contents of ```build_dataset.py```.
+
 [WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
 
-[***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS NAME AND ORDER MISMATCHES)
+[***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS-NAME-AND-ORDER-MISMATCHES)
 
 Build the dataset:
 ```
