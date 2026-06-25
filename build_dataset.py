@@ -1,4 +1,3 @@
-cat > build_dataset.py << 'EOF'
 import os, sys, random, shutil
 
 random.seed(42)
