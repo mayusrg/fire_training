@@ -1,8 +1,8 @@
 - [x] explain steps to use build_dataset.py
-- [X] explain WHY build_dataset.py
-- [ ] how to rename when yaml has data in different order (ex. [0, 1] vs ['fire', 'smoke'] vs ['smoke', 'fire']
-- [ ] how to activate YOLOv11
-- [ ] how to get rid of basic YOLOv11 recognition (recognizing people, etc)
+- [x] explain WHY build_dataset.py
+- [x] how to rename when yaml has data in different order (ex. [0, 1] vs ['fire', 'smoke'] vs ['smoke', 'fire']
+- [x] how to activate YOLOv11
+- [x] how to get rid of basic YOLOv11 recognition (recognizing people, etc)
 - [ ] explain brains
-- [ ] explain file structure
+- [x] explain file structure
 - [ ] get rid of near-duplicate frames
