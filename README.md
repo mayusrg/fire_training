@@ -12,7 +12,7 @@ Train YOLOv11 with images of fire and smoke
 > Windows/Linux with an NVIDIA GPU → use ```device=0```. No GPU → use ```device=cpu``` (slower).
 
 ## You need:
-- to adjust ```device``` as above according to device (Mac vs Windows/linux)
+- to adjust ```device``` as above according to device (Mac vs Windows/Linux)
 - **Python 3.11+** installed.
 
 
@@ -68,7 +68,7 @@ Should at least include: data.yaml, test (folder), train (folder), valid (folder
 * I personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
 * If you do not do this, you must manually list out every folder name when building.
 
-> Once you train a model on your fire/smoke data, the resulting brain (```best.pt```) only knows fire and smoke. Training a seed brain creates a new brain that only recognizes your 2 classes (seen in your ```data.yaml```).
+> Once you train a model on your fire/smoke data, the resulting brain (```best.pt```) only knows fire and smoke. Training a seed brain creates a new brain that only recognizes your classes (seen in your ```data.yaml```).
 
 
 ## 3. Activate your environment (every time, before you can do anything)
