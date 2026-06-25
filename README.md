@@ -100,8 +100,8 @@ Then paste in the contents of ```build_dataset.py```.
 
 [WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
 
-
-<mark>[***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS-NAME-AND-ORDER-MISMATCHES)</mark>
+> [!WARNING]
+> <mark>[***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS-NAME-AND-ORDER-MISMATCHES)</mark>
 
 Build the dataset, IF YOU ALREADY HAVE ```build_dataset.py``` DOWNLOADED:
 ```
