@@ -76,7 +76,7 @@ source .venv/bin/activate
 
 
 ## 4. Build
-Build, train, and rebuild whenever your data changes
+Build, train, and rebuild whenever your data changes.
 
 
 ```build_dataset.py``` combines all your dataset folders, shuffles them, and splits them into the ```combined_split/``` folder that training reads.
