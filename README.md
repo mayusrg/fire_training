@@ -22,7 +22,7 @@ Train yolov11 with images of fire and smoke
 3. [Activate environment](#3-activate-your-environment)
 4. [Build files](#4-build)
 5. [Train](#5-train-the-new-brain)
-6. [Run](#6-ACTUALLY-RUNNING-YOLO)
+6. [Run](#6-actually-running-yolo)
 
 
 
@@ -119,7 +119,7 @@ python build_dataset.py fire*
 yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgsz=640 patience=20 device=mps name=fire_v2
 ```
 - ```epochs=100``` - how many times it studies the full set
-- ```patience=20``` - auto-stop if it stops imprving for 20 epochs (keeps the best version)
+- ```patience=20``` - auto-stop if it stops improving for 20 epochs (keeps the best version)
 - ```name=fire_v2``` - change this number if you don't want to overwrite your previous brain.
 - ```imgsz``` - target image resolution
 - [more details regarding brains](#BRAIN-MANAGEMENT)
@@ -188,8 +188,7 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
 │   ├── train/
 │       ├── images/   labels/
 │   ├── valid/
-│       ├── images/             
-│       └── labels/             ← annotations
+│       ├── images/   labels/             ← annotations
 ├── fire2/
 │   └── ...
 └── runs/
