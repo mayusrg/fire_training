@@ -1,18 +1,18 @@
 # Training YOLOv11 to accurately recognize images of fire and smoke
 Train yolov11 with images of fire and smoke
 
-## key terms:
+## Key terms:
 - dataset: a folder of images plus matching label files (the boxes)
 - ```yolo11n.pt```: the starter brain everyone trains from; knows general shapes, not fire yet. auto-downloads on first use
 - model / brain / "best.pt" : the trained result. stored in ```runs/detect/<name>/weights/```.
-- epoch: one full pass over all training images.
+- epoch: one full pass over all training images
 
 > This guide uses `device=mps`, which is **Apple Silicon (M1/M2/M3/M4) only**.
 > 
 > Windows/Linux with an NVIDIA GPU → use ```device=0```. No GPU → use ```device=cpu``` (slower).
 
 ## You need:
-- adjust ```device``` as above according to device (mac vs windows/linux)
+- to adjust ```device``` as above according to device (Mac vs Windows/linux)
 - **Python 3.11+** installed.
 
 
@@ -32,16 +32,24 @@ Train yolov11 with images of fire and smoke
 Where your downloaded datasets will go. ```yolo11n.pt``` is here.
 
 For this guide, the folder is called ```fire-detect```.
+
+Make the folder:
 ```
 mkdir -p ~/projects/fire-detect
+```
+
+Go to the folder:
+```
 cd ~/projects/fire-detect
 ```
+
 
 ### Set up the environment (first-timers only)
 Create the environment:
 ```
 python3 -m venv .venv
 ```
+
 Install YOLO:
 ```
 pip install --upgrade pip
@@ -54,6 +62,7 @@ When the venv is on, your prompt starts with `(.venv)`. Confirm it works:
 yolo checks
 ```
 
+
 ## 2. Download datasets: training
 Should at least include: data.yaml, test (folder), train (folder), valid (folder)
 * I personally renamed every one to fire[number] (ex. fire1, fire2, ... fireN)
@@ -62,9 +71,8 @@ Should at least include: data.yaml, test (folder), train (folder), valid (folder
 > Once you train a model on your fire/smoke data, the resulting brain (```best.pt```) only knows fire and smoke. Training a seed brain creates a new brain that only recognizes your 2 classes (seen in your ```data.yaml```).
 
 
-
 ## 3. Activate your environment (every time, before you can do anything)
-Go to your folder full of datasets
+Go to your folder full of datasets:
 ```
 cd ~/projects/fire-detect
 ```
@@ -126,7 +134,6 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 # CLASS NAME AND ORDER MISMATCHES
-
 
 
 # WHY USE BUILD_DATASET.PY?
@@ -191,6 +198,7 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
         ├── predict/ … predict-10/   ← detection outputs, NOT brains
         └── ...
 ```
+
 
 
 # Datasets used (this is for my own sake this shouldn't matter to whoever's reading lol)
