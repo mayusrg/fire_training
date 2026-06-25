@@ -188,6 +188,7 @@ Cases you might see + how to fix:
    names: ['fire', 'smoke', 'water']
    ```
    <p></p>
+   <p></p>
    
    **This is NOT fine:**
    
