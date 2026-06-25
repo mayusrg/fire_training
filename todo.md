@@ -1,5 +1,5 @@
-- [ ] explain steps to use build_dataset.py
-- [ ] explain WHY build_dataset.py
+- [x] explain steps to use build_dataset.py
+- [X] explain WHY build_dataset.py
 - [ ] how to rename when yaml has data in different order (ex. [0, 1] vs ['fire', 'smoke'] vs ['smoke', 'fire']
 - [ ] how to activate YOLOv11
 - [ ] how to get rid of basic YOLOv11 recognition (recognizing people, etc)
