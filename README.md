@@ -189,6 +189,7 @@ Cases you might see + how to fix:
    ```
 
 
+
    **This is NOT fine:**
    
    DatasetA
@@ -201,6 +202,7 @@ Cases you might see + how to fix:
    nc: 3
    names: ['fire', 'water', 'smoke']
    ```
+   
 
    > A dataset can have fewer or more classes than your list, but it can never *disagree on the numbering*.
 
