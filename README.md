@@ -188,8 +188,6 @@ Cases you might see + how to fix:
    names: ['fire', 'smoke', 'water']
    ```
    
-   <br>
-   
    **This is NOT fine:**
    
    DatasetA
