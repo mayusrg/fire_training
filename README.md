@@ -187,8 +187,8 @@ Cases you might see + how to fix:
    nc: 3
    names: ['fire', 'smoke', 'water']
    ```
-
-   <br><br>
+   
+   <br>
    
    **This is NOT fine:**
    
