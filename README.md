@@ -147,7 +147,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 > notice the yolo detect **predict** vs **train**
 > source depends on whether you want your built in camera or another connected device
 
-<br>
+<br><br>
 
 # CLASS NAME AND ORDER MISMATCHES
 > [!WARNING]
@@ -206,14 +206,14 @@ Cases you might see + how to fix:
 
    > A dataset can have fewer or more classes than your list, but it can never *disagree on the numbering*.
 
-<br>
+<br><br>
 
 # WHY USE BUILD_DATASET.PY?
 Roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
 
 ```build_dataset.py``` deletes and rebuilds ```combined_split/``` from scratch each run so it's freshly split 80/10/10 each time you add something.
 
-<br>
+<br><br>
 
 # BRAIN MANAGEMENT
 ## To find every brain you have at once:
@@ -236,7 +236,7 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
    ```
 2. **OR** delete the old folder, and then train normally
 
-<br>
+<br><br>
 
 # FILE STRUCTURE
 ```
@@ -270,7 +270,7 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
         └── ...
 ```
 
-<br>
+<br><br>
 
 # Datasets used (this is for my own sake this shouldn't matter to whoever's reading lol)
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
