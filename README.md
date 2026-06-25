@@ -175,7 +175,7 @@ Cases you might see + how to fix:
 
 4. More classes in new datasets.
 
-   This is fine:
+   **This is fine:**
 
    DatasetA
    ```
@@ -188,7 +188,9 @@ Cases you might see + how to fix:
    names: ['fire', 'smoke', 'water']
    ```
 
-   This is **NOT** fine:
+
+   **This is NOT fine:**
+   
    DatasetA
    ```
    nc: 2
