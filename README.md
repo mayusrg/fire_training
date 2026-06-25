@@ -1,5 +1,5 @@
 # Training YOLOv11 to accurately recognize images of fire and smoke
-Train yolov11 with images of fire and smoke
+Train YOLOv11 with images of fire and smoke
 
 ## Key terms:
 - dataset: a folder of images plus matching label files (the boxes)
@@ -150,6 +150,56 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 # CLASS NAME AND ORDER MISMATCHES
+> [!WARNING] ALL DATASETS MUST USE THE SAME CLASSES IN THE SAME ORDER!!!!!!
+In the ```data.yaml``` file of any dataset, you will see the following lines:
+```
+nc: 2
+names: ['fire', 'smoke']
+```
+
+**THE NAMES MAY DIFFER.**
+
+```nc``` represents the number of classes, equal to the length of ```names```. The .txt files only store class NUMBERS, not words. The position of the words decides the meaning.
+
+Cases you might see + how to fix:
+
+1. ```names: ['0', '1']```: Unhelpful labels; boxes that show up real-time will display '0' or '1'. If 0 really is fire and 1 really is smoke, the POSITIONS match. You can change '0' to 'fire' and '1' to 'smoke'.
+   > On Roboflow, you can verify this by opening an image and checking the left-side panel for classes.
+
+2. ```names: ['fire', 'smoke']```: Fine, ideal.
+   
+3. ```names: ['smoke', 'fire']```: NOT FINE!!! Fix it in Roboflow and re-download (you may have to clone your desired dataset) 
+   > If you simply rename it, every label is now wrong.
+
+4. More classes in new datasets.
+
+   This is fine:
+
+   DatasetA
+   ```
+   nc: 2
+   names: ['fire', 'smoke']
+   ```
+   DatasetB
+   ```
+   nc: 3
+   names: ['fire', 'smoke', 'water']
+   ```
+
+   This is **NOT** fine:
+   DatasetA
+   ```
+   nc: 2
+   names: ['fire', 'smoke']
+   ```
+   DatasetB
+   ```
+   nc: 3
+   names: ['fire', 'water', 'smoke']
+   ```
+
+   > A dataset can have fewer or more classes than your list, but it can never *disagree on the numbering*.
+
 
 
 # WHY USE BUILD_DATASET.PY?
