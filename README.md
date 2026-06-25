@@ -206,7 +206,7 @@ Cases you might see + how to fix:
 
    > A dataset can have fewer or more classes than your list, but it can never *disagree on the numbering*.
 
-
+<br>
 
 # WHY USE BUILD_DATASET.PY?
 Roboflow splits each dataset into folders named train, valid, and test. This works for one dataset, but YOLO cannot be directed towards multiple folders. It would also be tedious and unrealistic for one to manually move the contents of new datasets into one combined folder (see [the complicated file structure](#FILE-STRUCTURE)) AND split it 80/10/10, especially when there are thousands of images and txt files with *very* interesting file names.
