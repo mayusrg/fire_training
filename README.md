@@ -147,7 +147,7 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 > notice the yolo detect **predict** vs **train**
 > source depends on whether you want your built in camera or another connected device
 
-
+<br>
 
 # CLASS NAME AND ORDER MISMATCHES
 > [!WARNING]
@@ -213,7 +213,7 @@ Roboflow splits each dataset into folders named train, valid, and test. This wor
 
 ```build_dataset.py``` deletes and rebuilds ```combined_split/``` from scratch each run so it's freshly split 80/10/10 each time you add something.
 
-
+<br>
 
 # BRAIN MANAGEMENT
 ## To find every brain you have at once:
@@ -236,7 +236,7 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
    ```
 2. **OR** delete the old folder, and then train normally
 
-
+<br>
 
 # FILE STRUCTURE
 ```
@@ -270,7 +270,7 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
         └── ...
 ```
 
-
+<br>
 
 # Datasets used (this is for my own sake this shouldn't matter to whoever's reading lol)
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
