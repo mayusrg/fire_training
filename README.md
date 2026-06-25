@@ -101,7 +101,7 @@ Then paste in the contents of ```build_dataset.py```.
 [WHY BUILD_DATASET.PY?](#WHY-BUILD_DATASET.PY?)
 
 > [!WARNING]
-> <mark>[***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS-NAME-AND-ORDER-MISMATCHES)</mark>
+> [***PLEASE READ THIS BEFORE YOU BUILD***](#CLASS-NAME-AND-ORDER-MISMATCHES)
 
 Build the dataset, IF YOU ALREADY HAVE ```build_dataset.py``` DOWNLOADED:
 ```
@@ -150,7 +150,9 @@ yolo detect train model=yolo11n.pt data=combined_split/data.yaml epochs=100 imgs
 
 
 # CLASS NAME AND ORDER MISMATCHES
-> [!WARNING] ALL DATASETS MUST USE THE SAME CLASSES IN THE SAME ORDER!!!!!!
+> [!WARNING]
+> ALL DATASETS MUST USE THE SAME CLASSES IN THE SAME ORDER!!!!!!
+
 In the ```data.yaml``` file of any dataset, you will see the following lines:
 ```
 nc: 2
