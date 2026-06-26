@@ -234,6 +234,14 @@ This will put the brain in ```runs/detect/fire_v3/weights/best.pt```
    ```
 2. **OR** delete the old folder, and then train normally
 
+## Continue training a brain-in-progress
+
+(for when you stop training halfway)
+
+```
+yolo detect train resume model=path/to/your/last/run/last.pt
+```
+
 <br><br>
 
 # FILE STRUCTURE
