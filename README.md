@@ -278,6 +278,16 @@ yolo detect train resume model=path/to/your/last/run/last.pt
 
 <br><br>
 
+# YOLO DEFAULT PARAMETERS:
+[config](https://docs.ultralytics.com/usage/cfg)
+
+<br><br>
+
 # Datasets used (this is for my own sake this shouldn't matter to whoever's reading lol)
 1. https://universe.roboflow.com/peter-malak-j25xh/wildfire-detection-5fgxd
 2. https://universe.roboflow.com/waleed-azzi-o5bzp/wildfire-detection-3vcvr
+
+<br><br>
+
+# links
+[ultralytics](https://docs.ultralytics.com/)
